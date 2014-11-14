@@ -1,8 +1,8 @@
 //This is needed for the setGradient function below
 int Y_AXIS = 1;
 int X_AXIS = 2;
-int manPosX = 30;
-int jumpSpeed  = 5;
+int manPosX;
+int jumpSpeed  = 20;
 //Need to delcare the value for manPosY later due to size not existing yet
 float manPosY;
 
@@ -13,7 +13,7 @@ color skyTop, skyBottom, groundTop, groundBottom;
 boolean frontEnd = false;
 boolean goingToWork = true;
 
-boolean jumping = true;
+boolean jumping = false;
 boolean jumpingUp = true;
 
 void setup() {
