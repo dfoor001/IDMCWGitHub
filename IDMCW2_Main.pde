@@ -1,5 +1,9 @@
 void setup() {
   size(640, 360);
+  Work = loadImage("work.png");
+  Home = loadImage("Home.png");
+  Settings = loadImage("cog.png");
+
 
   manPosY = height/1.5;
 
@@ -22,10 +26,30 @@ void setup() {
 }
 
 void draw() {
-  if (!frontEnd) {
+  //Custom functions for the main menu buttons (detailed code in 'MainMenuFunctions.pde')
+  workButton();
+  homeButton();
+  settingsButton();
+ 
+ //Loads the level for work 
+  if (frontEnd = !frontEnd) {
     drawInGameBackground();
     drawMan();
     drawBuilding();
+  }
+  
+ //Loads the level for home
+  if (frontEnd = !frontEnd && goingToWork = !goingToWork){
+    drawInGameBackground();
+    drawMan();
+    drawBuilding();
+  }
+  
+ //Loads the settings menu (listed below are temporary custom functions; to be edited) 
+  if (frontEnd = !frontEnd && toSettings = !toSettings){
+    drawOptionOne();
+    drawOptionTwo();
+    drawOptionThree();
   }
 }
 

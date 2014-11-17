@@ -15,3 +15,5 @@ color skyTop, skyBottom, groundTop, groundBottom;
 //Bool frontEnd tracks whether we are on the front end or in game going to Work tracks wether we are going to work or (if false) going home.
 boolean frontEnd = false;
 boolean goingToWork = true;
+boolean toSettings = false;
+
