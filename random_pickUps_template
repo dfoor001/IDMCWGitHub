@@ -1,0 +1,101 @@
+int spawnTimer, runTimer, pickUpSelector, pickUpSelection;
+int spriteRadius = 25, spriteXPos = -spriteRadius, spriteYPos = 240, spriteXSpeed = -5;
+boolean drawSprite = false;
+color coffee = color(0, 255, 0), sandwich = color(255, 0, 0);
+
+
+void setup ()
+{
+  size (600, 480);
+}
+
+void draw ()
+{
+  background (255);
+  drawSprite = false;
+  pickUps ();
+}
+
+void pickUps ()
+{
+  if (millis() - spawnTimer >= 3000)
+  {
+    if (!drawSprite)
+    {
+    choosePickUp();
+    }
+    spawnTimer = millis();
+  }
+  if (millis() - runTimer >= 16.6)
+  {
+    drawPickUps();
+  }
+}
+
+void choosePickUp ()
+{
+  pickUpSelector = (int) random(10);
+  switch (pickUpSelector)
+  {
+  //0 for nothing, 1 for green (coffee), 2 for red (sandwich)
+  case 0:
+    pickUpSelection = 0;
+    break;
+  case 1:
+    pickUpSelection = 0;
+    break;
+  case 2:
+    pickUpSelection = 0;
+    break;
+  case 3:
+    pickUpSelection = 0;
+    break;
+  case 4:
+    pickUpSelection = 1;
+    break;
+  case 5:
+    pickUpSelection = 1;
+    break;
+  case 6:
+    pickUpSelection = 1;
+    break;
+  case 7:
+    pickUpSelection = 1;
+    break;
+  case 8:
+    pickUpSelection = 2;
+    break;
+  case 9: 
+    pickUpSelection = 2;
+    break;
+  case 10:
+    pickUpSelection = 2;
+  }
+  if (pickUpSelection == 1)
+  {
+    fill(coffee);
+  }
+  if (pickUpSelection == 2)
+  {
+    fill(sandwich);
+  }
+
+  if (pickUpSelection != 0)
+  {
+    drawSprite = true;
+    spriteXPos = width + spriteRadius;
+  }
+}
+
+void drawPickUps ()
+{
+  if (drawSprite && spriteXPos < (0 - spriteRadius))
+  {
+    drawSprite = false;
+  }
+  if (drawSprite = true)
+  {
+    ellipse (spriteXPos, spriteYPos, spriteRadius, spriteRadius);
+    spriteXPos += spriteXSpeed;
+  }
+}
